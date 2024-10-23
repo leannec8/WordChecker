@@ -18,7 +18,7 @@ public class WordChecker {
             String before = wordList.get(i-1);
             if(after.indexOf(before) < 0) return false;
         }
-        boolean wordChain = true; 
+        return true;
     }
         
     /**
@@ -31,6 +31,13 @@ public class WordChecker {
      * wordList.
      */
     public ArrayList<String> createList(String target) {
+        ArrayList<String> list = new ArrayList<String>();
+        for(String s : wordList)
+            if(s.indexOf(target) == 0)
+            {
+                list.add(s.substring(target.length()));
+            }
+        return list;
         /* to be implemented in part (b) */ 
     }
 
@@ -44,5 +51,4 @@ public class WordChecker {
     {
         wordList = new ArrayList<String>();
     }
-
 }
